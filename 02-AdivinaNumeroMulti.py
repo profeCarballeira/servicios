@@ -27,11 +27,11 @@ if __name__ == '__main__':
         
         print ("Servidor escuchando")
         print ("Número a adivinar: " +str(adivinar))
+        while True:
+            (cli,addr) = s.accept() #bloqueante
+            print ("Cliente conectado en: ", addr)
         
-        (cli,addr) = s.accept() #bloqueante
-        print ("Cliente conectado en: ", addr)
-    
-        t= threading.Thread(target=ManejaCliente, args=(cli,addr))
-        t.start()
-    
+            t= threading.Thread(target=ManejaCliente, args=(cli,addr))
+            t.start()
+        
         
